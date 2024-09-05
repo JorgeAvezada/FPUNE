@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, FlatList, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const ComponenteParcial01 = () => {
@@ -18,13 +18,21 @@ const ComponenteParcial01 = () => {
 
   return (
     <View style={styles.container}>
+      {/* Imagen externa */}
+      <Image
+        source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ8JjvwYG2GmdBKJq-oOCqLRJD0fcCfrUPgw&s' }}
+        style={styles.image}
+      />
+
       <Text style={styles.title}>Examen Primera Parcial</Text>
+
       <TextInput
         style={styles.input}
         placeholder="Ingresar nombre"
         value={name}
         onChangeText={setName}
       />
+
       <FlatList
         data={items}
         renderItem={({ item }) => (
@@ -43,6 +51,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
+  },
+  image: {
+    width: 100,  // Ancho de la imagen
+    height: 100, // Altura de la imagen
+    marginBottom: 20,
   },
   title: {
     fontSize: 24,
